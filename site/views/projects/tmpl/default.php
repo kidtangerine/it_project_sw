@@ -58,32 +58,17 @@ jQuery(document).ready(function(){
 				<th>
 				<?php echo JText::_('COM_ITPROJECT_PROJECTS_PROJECT_STATUS');?>
 				</th>
-				<th class=''>
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_STATUS', 'a.project_status', $listDirn, $listOrder); ?>
+				<th>
+				<?php echo JText::_('COM_ITPROJECT_PROJECTS_PROJECT_COMPLETION_STATUS');?>
 				</th>
-				<th class=''>
-				
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_COMPLETION_STATUS', 'a.project_completion_status', $listDirn, $listOrder); ?>
+				<th>
+				<?php echo JText::_('COM_ITPROJECT_PROJECTS_PROJECT_START_DATE');?>
 				</th>
-				
-				
-				
-				
-				<th class=''>
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_START_DATE', 'a.project_start_date', $listDirn, $listOrder); ?>
+				<th>
+				<?php echo JText::_('COM_ITPROJECT_PROJECTS_PROJECT_END_DATE');?>
+				</th><th>
+				<?php echo JText::_('COM_ITPROJECT_PROJECTS_PROJECT_DESCRIPTION');?>
 				</th>
-				<th class=''>
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_END_DATE', 'a.project_end_date', $listDirn, $listOrder); ?>
-				</th>
-				<th class=''>
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_DESCRIPTION', 'a.project_description', $listDirn, $listOrder); ?>
-				</th>
-
-							<?php if ($canEdit || $canDelete): ?>
-					<th class="center">
-				<?php echo JText::_('COM_ITPROJECT_PROJECTS_ACTIONS'); ?>
-				</th>
-				<?php endif; ?>
 
 		</tr>
 		</thead>
@@ -114,10 +99,6 @@ jQuery(document).ready(function(){
 </td> */?>
 				<?php endif; ?>
 
-								<td>
-
-					<?php echo $item->id; ?>
-				</td>
 				
 				<td>
 
@@ -144,15 +125,16 @@ jQuery(document).ready(function(){
 					<?php echo $item->project_end_date; ?>
 				</td>
 				<td>
-
+				
 					<?php echo $item->project_description; ?>
 				</td>
-
-
-								<?php if ($canEdit || $canDelete): ?>
-					<td class="center">
-					</td>
-				<?php endif; ?>
+				<td>
+			<a href="#ex1" rel="modal:open"><button class="description_button">Description</button></a> <div id="ex1" style="display:none;">
+			<h3>Project Description</h3>
+				<p><?php echo $item->project_description; ?></p>
+			  </div>
+			</div>
+			</td>
 
 			</tr>
 		<?php endforeach; ?>
