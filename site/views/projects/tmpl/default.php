@@ -116,6 +116,11 @@ jQuery(document).ready(function(){
 
 					<?php echo $item->project_completion_status; ?>
 				</td>
+				<td><div class="progress progress-success progress-striped active">
+				  <div class="bar" style="width:<?php echo $item->project_completion_status; ?>%">
+					<?php echo $item->project_completion_status; ?>%
+				  </div>
+				</div></td>
 				<td>
 
 					<?php echo $item->project_start_date; ?>
@@ -124,10 +129,7 @@ jQuery(document).ready(function(){
 
 					<?php echo $item->project_end_date; ?>
 				</td>
-				<td>
 				
-					<?php echo $item->project_description; ?>
-				</td>
 				<td>
 			<a href="#ex1" rel="modal:open"><button class="description_button">Description</button></a> <div id="ex1" style="display:none;">
 			<h3>Project Description</h3>
