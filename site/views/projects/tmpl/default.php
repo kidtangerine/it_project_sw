@@ -112,10 +112,7 @@ jQuery(document).ready(function(){
 
 					<?php echo $item->project_status; ?>
 				</td>
-				<td>
-
-					<?php echo $item->project_completion_status; ?>
-				</td>
+				
 				<td><div class="progress progress-success progress-striped active">
 				  <div class="bar" style="width:<?php echo $item->project_completion_status; ?>%">
 					<?php echo $item->project_completion_status; ?>%
