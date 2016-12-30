@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" hint="COM_ITPROJECT_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        <field name="project_department" type="list" onchange="this.form.submit();">
+  <option value="">---</option>
+  <option value="admissions">COM_ITPROJECT_PROJECTS_PROJECT_DEPARTMENT_OPTION_ADMISSIONS</option>
+  <option value="continuing_education">COM_ITPROJECT_PROJECTS_PROJECT_DEPARTMENT_OPTION_CONTINUING_EDUCATION</option>
+  <option value="its">COM_ITPROJECT_PROJECTS_PROJECT_DEPARTMENT_OPTION_ITS</option>
+  <option value="library">COM_ITPROJECT_PROJECTS_PROJECT_DEPARTMENT_OPTION_LIBRARY</option>
+</field>
+<field name="project_status" type="list" onchange="this.form.submit();">
+  <option value="">---</option>
+  <option value="in_progress">COM_ITPROJECT_PROJECTS_PROJECT_STATUS_OPTION_IN_PROGRESS</option>
+  <option value="completed">COM_ITPROJECT_PROJECTS_PROJECT_STATUS_OPTION_COMPLETED</option>
+  <option value="Initiating">COM_ITPROJECT_PROJECTS_PROJECT_STATUS_OPTION_INITIATING</option>
+</field>
+<field name="project_start_date_from_dateformat" label="COM_ITPROJECT_LIST_LBL_PROJECT_PROJECT_START_DATE_FILTER_FROM" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox"/>
+<field name="project_start_date_to_dateformat" label="COM_ITPROJECT_LIST_LBL_PROJECT_PROJECT_START_DATE_FILTER_TO" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox"/>
+<field name="project_end_date_from_dateformat" label="COM_ITPROJECT_LIST_LBL_PROJECT_PROJECT_END_DATE_FILTER_FROM" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox"/>
+<field name="project_end_date_to_dateformat" label="COM_ITPROJECT_LIST_LBL_PROJECT_PROJECT_END_DATE_FILTER_TO" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox"/>
+
+
+    </fields>
+</form>

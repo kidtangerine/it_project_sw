@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_itproject</name>
+    <creationDate>2016-12-30</creationDate>
+    <copyright>2016 modern services</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Brad Hancock</author>
+    <authorEmail></authorEmail>
+    <authorUrl>http://modernservicesinc.com</authorUrl>
+    <version>CVS: 1.0.0</version>
+    <description>Its projects</description>
+    
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
+        </sql>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>itproject.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+    </files>
+    <media destination="com_itproject" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
+    <languages folder="languages/site">
+        
+			<language tag="en-GB">en-GB/en-GB.com_itproject.ini</language>
+    </languages>
+    <administration>
+        <menu img="media/com_itproject/images/s_com_itproject.png" >COM_ITPROJECT</menu>
+        <submenu>
+            
+			<menu link="option=com_itproject&amp;view=projects" view="projects" img="media/com_itproject/images/s_projects.png" alt="Itproject/Projects">COM_ITPROJECT_TITLE_PROJECTS</menu>
+
+			<menu link="option=com_itproject&amp;view=itprojects" view="itprojects" img="media/com_itproject/images/s_projects.png" alt="Itproject/Itprojects">COM_ITPROJECT_TITLE_ITPROJECTS</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>itproject.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="languages/administrator">
+            
+			<language tag="en-GB">en-GB/en-GB.com_itproject.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_itproject.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+        <plugin group="search" plugin="itproject"/>
+    </plugins>
+    
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->
