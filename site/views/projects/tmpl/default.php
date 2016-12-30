@@ -30,7 +30,10 @@ $canDelete  = $user->authorise('core.delete', 'com_itproject');
 </style>
 <script>
 jQuery(document).ready(function(){
-    jQuery('#projectList').DataTable();
+    jQuery('#projectList').DataTable({
+		"searching": false,
+		"lengthChange": false
+	});
 } );
 </script>
  <script src="/media/jui/js/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
