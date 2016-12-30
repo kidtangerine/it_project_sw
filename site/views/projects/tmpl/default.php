@@ -49,11 +49,14 @@ jQuery(document).ready(function(){
 			<?php endif; ?>
 
 							
-				<th class=''>
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_DEPARTMENT', 'a.project_department', $listDirn, $listOrder); ?>
+				<th>
+				<?php echo JText::_('COM_ITPROJECT_PROJECTS_PROJECT_DEPARTMENT');?>
 				</th>
-				<th class=''>
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_NAME', 'a.project_name', $listDirn, $listOrder); ?>
+				<th>
+				<?php echo JText::_('COM_ITPROJECT_PROJECTS_PROJECT_NAME');?>
+				</th>
+				<th>
+				<?php echo JText::_('COM_ITPROJECT_PROJECTS_PROJECT_STATUS');?>
 				</th>
 				<th class=''>
 				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_STATUS', 'a.project_status', $listDirn, $listOrder); ?>
