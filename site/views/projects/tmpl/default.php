@@ -24,45 +24,57 @@ $canCheckin = $user->authorise('core.manage', 'com_itproject');
 $canChange  = $user->authorise('core.edit.state', 'com_itproject');
 $canDelete  = $user->authorise('core.delete', 'com_itproject');
 ?>
+<link href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+ <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<style media="screen" type="text/css">
+</style>
+<script>
+jQuery(document).ready(function(){
+    jQuery('#projectList').DataTable();
+} );
+</script>
+ <script src="/media/jui/js/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" href="/media/jui/css/jquery.modal.css" type="text/css" media="screen" />
 
+<hr id="system-readmore" />
 <form action="<?php echo JRoute::_('index.php?option=com_itproject&view=projects'); ?>" method="post"
       name="adminForm" id="adminForm">
 
 	<?php echo JLayoutHelper::render('default_filter', array('view' => $this), dirname(__FILE__)); ?>
-	<table class="table table-striped" id="projectList">
+	<table id="projectList">
 		<thead>
 		<tr>
 			<?php if (isset($this->items[0]->state)): ?>
-				<th width="5%">
-	<?php echo JHtml::_('grid.sort', 'JPUBLISHED', 'a.state', $listDirn, $listOrder); ?>
-</th>
+				
 			<?php endif; ?>
 
-							<th class=''>
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_ID', 'a.id', $listDirn, $listOrder); ?>
+							
+				<th class=''>
+				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_DEPARTMENT', 'a.project_department', $listDirn, $listOrder); ?>
 				</th>
 				<th class=''>
 				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_NAME', 'a.project_name', $listDirn, $listOrder); ?>
 				</th>
 				<th class=''>
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_DESCRIPTION', 'a.project_description', $listDirn, $listOrder); ?>
-				</th>
-				<th class=''>
-				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_DEPARTMENT', 'a.project_department', $listDirn, $listOrder); ?>
-				</th>
-				<th class=''>
 				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_STATUS', 'a.project_status', $listDirn, $listOrder); ?>
 				</th>
 				<th class=''>
+				
 				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_COMPLETION_STATUS', 'a.project_completion_status', $listDirn, $listOrder); ?>
 				</th>
+				
+				
+				
+				
 				<th class=''>
 				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_START_DATE', 'a.project_start_date', $listDirn, $listOrder); ?>
 				</th>
 				<th class=''>
 				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_END_DATE', 'a.project_end_date', $listDirn, $listOrder); ?>
 				</th>
-
+				<th class=''>
+				<?php echo JHtml::_('grid.sort',  'COM_ITPROJECT_PROJECTS_PROJECT_DESCRIPTION', 'a.project_description', $listDirn, $listOrder); ?>
+				</th>
 
 							<?php if ($canEdit || $canDelete): ?>
 					<th class="center">
@@ -88,7 +100,7 @@ $canDelete  = $user->authorise('core.delete', 'com_itproject');
 
 				<?php if (isset($this->items[0]->state)) : ?>
 					<?php $class = ($canChange) ? 'active' : 'disabled'; ?>
-					<td class="center">
+					<?php /* <td class="center">
 	<a class="btn btn-micro <?php echo $class; ?>" href="<?php echo ($canChange) ? JRoute::_('index.php?option=com_itproject&task=project.publish&id=' . $item->id . '&state=' . (($item->state + 1) % 2), false, 2) : '#'; ?>">
 	<?php if ($item->state == 1): ?>
 		<i class="icon-publish"></i>
@@ -96,28 +108,22 @@ $canDelete  = $user->authorise('core.delete', 'com_itproject');
 		<i class="icon-unpublish"></i>
 	<?php endif; ?>
 	</a>
-</td>
+</td> */?>
 				<?php endif; ?>
 
 								<td>
 
 					<?php echo $item->id; ?>
 				</td>
-				<td>
-				<?php if (isset($item->checked_out) && $item->checked_out) : ?>
-					<?php echo JHtml::_('jgrid.checkedout', $i, $item->uEditor, $item->checked_out_time, 'projects.', $canCheckin); ?>
-				<?php endif; ?>
-				<a href="<?php echo JRoute::_('index.php?option=com_itproject&view=project&id='.(int) $item->id); ?>">
-				<?php echo $this->escape($item->project_name); ?></a>
-				</td>
-				<td>
-
-					<?php echo $item->project_description; ?>
-				</td>
+				
 				<td>
 
 					<?php echo $item->project_department; ?>
 				</td>
+				<td>
+				<?php echo $item->project_name; ?>
+				</td>
+				
 				<td>
 
 					<?php echo $item->project_status; ?>
@@ -133,6 +139,10 @@ $canDelete  = $user->authorise('core.delete', 'com_itproject');
 				<td>
 
 					<?php echo $item->project_end_date; ?>
+				</td>
+				<td>
+
+					<?php echo $item->project_description; ?>
 				</td>
 
 
