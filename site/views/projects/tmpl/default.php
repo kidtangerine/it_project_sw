@@ -131,7 +131,7 @@ jQuery(document).ready(function(){
 				</td>
 				
 				<td>
-			<a href="#ex1" rel="modal:open"><button class="description_button">Description</button></a> <div id="ex1" style="display:none;">
+			<a href="#ex<?php echo $i?>" rel="modal:open"><button class="description_button">Description</button></a> <div id="ex<?php echo $i?>" style="display:none;">
 			<h3>Project Description</h3>
 				<p><?php echo $item->project_description; ?></p>
 			  </div>
